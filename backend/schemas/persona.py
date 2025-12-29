@@ -12,3 +12,13 @@ class PersonaResponse(PersonaBase):
 
     class Config:
         from_attributes = True
+
+
+class PersonaUpdate(PersonaBase):
+    pass
+
+class PersonaOut(PersonaBase):
+    id: int
+
+    class Config:
+        from_attributes = True
