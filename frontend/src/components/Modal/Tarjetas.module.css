@@ -1,0 +1,37 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fff;
+}
+
+.header {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.banco {
+  font-size: 14px;
+}
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nombre {
+  font-size: 15px;
+}
+
+.limite {
+  font-size: 13px;
+  color: #666;
+}

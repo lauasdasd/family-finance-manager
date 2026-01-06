@@ -1,0 +1,292 @@
+/* Contenedor general del formulario */
+/* FORM CONTENEDOR */
+.form {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  border-left: 6px solid #2bb0a6; /* verde agua */
+}
+
+/* Header del form */
+.formHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.formHeader h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+}
+
+.editBadge {
+  background: #e67e22;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* Campos */
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.field input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #2bb0a6;
+}
+
+/* Acciones */
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.submitBtn {
+  background: #2bb0a6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submitBtn:hover,
+.cancelBtn:hover {
+  opacity: 0.9;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  padding: 10px;
+}
+
+/* Info del Usuario */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+  border-left: 4px solid #20b2aa; /* Verde Agua */
+  padding-left: 15px;
+}
+
+.nombre {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  text-transform: capitalize;
+}
+
+.tipo {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Badge de Estado */
+.estado {
+  display: inline-block;
+  width: fit-content;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.activo {
+  background-color: #e6f7f6;
+  color: #20b2aa; /* Verde Agua */
+}
+
+.inactivo {
+  background-color: #fff0eb;
+  color: #ff8c00; /* Naranja */
+}
+
+/* Grupo de Botones */
+.btnGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas de botones */
+  gap: 10px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 15px;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos específicos de botones */
+.editBtn {
+  background-color: #f5f5f5;
+  color: #555;
+}
+
+.editBtn:hover {
+  background-color: #eee;
+  color: #000;
+}
+
+.toggleBtn {
+  background-color: transparent;
+  border: 1px solid #eee;
+  color: #888;
+}
+
+.toggleBtn:hover {
+  border-color: #ff8c00;
+  color: #ff8c00;
+}
+
+/* Botones de Información (Tarjetas y Cuentas) */
+.infoBtn {
+  grid-column: span 1;
+  background-color: #fff;
+  border: 1px solid #20b2aa;
+  color: #20b2aa;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.infoBtn:hover {
+  background-color: #20b2aa;
+  color: white;
+  box-shadow: 0 4px 12px rgba(32, 178, 170, 0.2);
+}
+
+/* Estilo especial para cuando es el botón de Cuentas (Naranja) */
+.infoBtn:last-child {
+  border-color: #ff8c00;
+  color: #ff8c00;
+}
+
+.infoBtn:last-child:hover {
+  background-color: #ff8c00;
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.2);
+}
+/* Estilos para el detalle dentro del modal */
+.cuentasDetalle {
+  padding: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.tablaDetalle {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tablaDetalle th {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #f0f0f0;
+  color: #888;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.tablaDetalle td {
+  padding: 15px 12px;
+  border-bottom: 1px solid #f9f9f9;
+  color: #333;
+}
+
+.textRight {
+  text-align: right;
+}
+
+.bancoNombreTable {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.montoTable {
+  font-family: 'Courier New', Courier, monospace; /* O una fuente monoespaciada para números */
+  font-weight: 800;
+  color: #222;
+}
+
+/* Badges de colores */
+.badgeIngreso {
+  background-color: #e6f7f6;
+  color: #20b2aa; /* Verde Agua */
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.badgeGasto {
+  background-color: #fff0eb;
+  color: #ff8c00; /* Naranja */
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.loadingModal, .emptyModal {
+  text-align: center;
+  padding: 30px;
+  color: #999;
+}

@@ -1,0 +1,212 @@
+/* --- ESTRUCTURA PRINCIPAL --- */
+/* Esto debe ir en tu CSS global */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important; /* Evita scrolls horizontales raros */
+}
+/* --- ESTRUCTURA PRINCIPAL --- */
+.container {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  font-family: 'Quicksand', 'Segoe UI', sans-serif; /* Tipografía más amigable */
+}
+
+/* --- AJUSTE DEL MAIN PARA EL SCROLL --- */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 260px; /* Ancho del sidebar */
+  min-width: 0;
+  height: 100vh; /* Ocupa el alto total de la ventana */
+}
+
+/* --- SIDEBAR (Gris Oscuro) --- */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  padding-top: 0.2rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  border-bottom: 3px solid #20b2aa;
+}
+
+.logoWrapper {
+  width: 180px;  /* Lo subí un poquito más a 100px ya que está solo */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin-bottom: 0.2rem;
+}
+
+/* Efecto opcional: que el logo crezca un poquito al pasar el mouse */
+.logoWrapper:hover {
+  transform: scale(1.05);
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navList li a {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  color: #b0b0b0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.navList li a:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+.navList li a.active {
+  background-color: #2a2a2a;
+  color: #00d1d1;
+  border-left: 5px solid #ff8c00;
+}
+
+.icon {
+  margin-right: 15px;
+  font-size: 1.3rem;
+}
+
+/* --- HEADER FIJO --- */
+.header {
+  height: 110px;
+  background-color: #20b2aa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: 100%;
+  
+  /* CLAVE PARA FIJARLO: */
+  position: sticky; 
+  top: 0;
+  z-index: 100; /* Por encima del contenido pero puede estar igual que el sidebar */
+  
+  margin: 0;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #444;
+}
+.brandTitle {
+  /* "Family" en Blanco con borde Naranja */
+  color: #ffffff; 
+  font-size: 2.2rem; /* Un poco más grande para que el borde se aprecie mejor */
+  font-weight: 800;
+  letter-spacing: -1px;
+  /* El borde naranja se crea con estas 4 sombras en las esquinas */
+  text-shadow: 
+    -1.5px -1.5px 0 #ff8c00,  
+     1.5px -1.5px 0 #ff8c00,
+    -1.5px  1.5px 0 #ff8c00,
+     1.5px  1.5px 0 #ff8c00; 
+}
+
+.brandTitle span {
+  /* "Finance" en Gris Oscuro sin bordes */
+  color: #1e1e1e; 
+  font-weight: 800;
+  margin-left: 8px;
+  /* Quitamos cualquier sombra heredada */
+  text-shadow: none; 
+}
+.dateBadge {
+  /* Eliminamos el position: absolute para que el flex-between lo empuje a la derecha */
+  background-color: #ff8c00;
+  color: #ffffff;
+  padding: 10px 28px;
+  border-radius: 15px; /* Estilo tarjeta más que píldora para variar */
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-transform: capitalize;
+}
+.filtrosGlobales {
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilo base para todos los selectores del header */
+.selectorHeader {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e0;
+  background-color: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.selectorHeader:hover {
+  border-color: #ff8c00;
+  background-color: #ffffff;
+}
+
+.selectorHeader:focus {
+  border-color: #ff8c00;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Estilo específico para el SELECTOR DE TITULAR (opcional) */
+/* Si quieres que se vea un poco diferente para resaltar */
+.selectorHeader[name="titularId"] {
+  border-left: 4px solid #ff8c00;
+  background-color: #eff6ff;
+  color: #be6800;
+  font-weight: 600;
+  min-width: 160px;
+}
+.selectorHeader option {
+  background-color: white;
+  color: #333;
+}
+/* Eliminamos el rightSpacer ya que el space-between se encarga del orden */
+.rightSpacer {
+  display: none;
+}
+/* --- CONTENIDO CON SCROLL INDEPENDIENTE --- */
+.content {
+  padding: 2.5rem;
+  flex: 1;
+  overflow-y: auto; /* Permite el scroll solo aquí */
+  background-color: #f5f7fa;
+}

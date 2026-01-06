@@ -9,6 +9,7 @@ class PersonaCreate(PersonaBase):
 
 class PersonaResponse(PersonaBase):
     id: int
+    activo: bool
 
     class Config:
         from_attributes = True

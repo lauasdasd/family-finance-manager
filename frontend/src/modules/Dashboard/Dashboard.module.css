@@ -1,0 +1,158 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* --- WIDGETS DE TOTALES --- */
+.widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.cardLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.monto {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Colores de las Cards */
+.vencidoCard { border-left: 6px solid #ff8c00; }
+.actualCard { border-left: 6px solid #20b2aa; }
+.totalCard { border-left: 6px solid #333; background-color: #f9f9f9; }
+
+/* --- GRID PRINCIPAL --- */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .mainGrid { grid-template-columns: 1fr; }
+}
+
+.column {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.colTitle {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: #fdfdfd;
+  border: 1px solid #f0f0f0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tagVencido, .tagActual {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-top: 4px;
+}
+
+.tagVencido { background: #fff3e0; color: #ef6c00; }
+.tagActual { background: #e0f2f1; color: #00796b; }
+
+.montoRojo { color: #d32f2f; font-weight: 700; }
+.montoNormal { color: #333; font-weight: 700; }
+
+/* --- SECCIÓN PARTICIPANTES --- */
+.participantesSection {
+  background: #f0f4f8;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.participantesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.personaCard {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.verde {
+  color: #20b2aa;
+  font-weight: 800;
+  display: block;
+  font-size: 1.2rem;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #666;
+}

@@ -1,0 +1,224 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 2rem;
+  color: #333; /* Negro/Gris muy oscuro */
+  margin-bottom: 5px;
+}
+
+.highlight {
+  color: #ff8c00; /* TU NARANJA */
+}
+
+.subtitle {
+  color: #888; /* Gris medio */
+  font-size: 0.95rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 350px 1fr; /* Formulario a la izquierda, lista a la derecha */
+  gap: 30px;
+  align-items: start;
+}
+
+/* Diseño de la tarjeta del Formulario */
+.cardForm {
+  background: #ffffff; /* BLANCO */
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #333;
+  border-left: 4px solid #ff8c00; /* Acento naranja */
+  padding-left: 12px;
+}
+.formCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666; /* Gris oscuro */
+}
+
+.input {
+  padding: 12px;
+  border: 1px solid #ddd; /* Gris claro */
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #20b2aa; /* TU VERDE AGUA */
+  box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.1);
+}
+
+/* Estilo especial para el monto */
+.montoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currencySymbol {
+  position: absolute;
+  left: 12px;
+  color: #20b2aa; /* VERDE AGUA */
+  font-weight: bold;
+}
+
+.inputMonto {
+  width: 100%;
+  padding: 12px 12px 12px 30px; /* Espacio para el símbolo $ */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.inputMonto:focus {
+  outline: none;
+  border-color: #20b2aa;
+}
+
+/* Botón principal NARANJA */
+.btnSubmit {
+  margin-top: 10px;
+  padding: 14px;
+  background-color: #ff8c00; /* TU NARANJA */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s;
+}
+
+.btnSubmit:hover {
+  background-color: #e67e00; /* Naranja un poco más oscuro */
+}
+
+.btnSubmit:active {
+  transform: scale(0.98);
+}
+.bancoCardCompact {
+  background-color: #ffffff;
+  /* Borde izquierdo grueso para dar color de identidad */
+  border: 1px solid #eee;
+  border-left: 5px solid #20b2aa; /* TU VERDE AGUA */
+  border-radius: 12px;
+  padding: 15px 20px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  align-items: center;
+  min-height: 90px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  overflow: hidden; /* Para el efecto de fondo */
+}
+
+/* Efecto al pasar el mouse */
+.bancoCardCompact:hover {
+  transform: translateX(8px);
+  border-color: #ff8c00; /* Cambia a NARANJA al seleccionar */
+  background-color: #f0fdfa; /* Un tinte verde agua casi blanco */
+  box-shadow: 0 6px 15px rgba(32, 178, 170, 0.15);
+}
+
+/* Agregamos un pequeño círculo decorativo de fondo */
+.bancoCardCompact::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 60px;
+  height: 60px;
+  background: rgba(32, 178, 170, 0.05); /* Verde agua muy traslúcido */
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.bancoCardCompact:hover::after {
+  background: rgba(255, 140, 0, 0.1); /* Cambia a naranja suave */
+  transform: scale(1.5);
+}
+
+.bancoNombre {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.bancoTipo {
+  display: inline-block;
+  margin-top: 4px;
+  color: #20b2aa; /* Verde Agua */
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: rgba(32, 178, 170, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.btnDelete {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: #fff5f2; /* Fondo naranja muy claro */
+  color: #ff8c00; /* TU NARANJA */
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.btnDelete:hover {
+  background-color: #ff8c00;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+/* Ajustes para dispositivos móviles */
+@media (max-width: 900px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}

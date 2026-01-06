@@ -1,0 +1,556 @@
+/* =========================================
+   1. LAYOUT GENERAL
+   ========================================= */
+.container {
+  padding: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.container h1 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid #20b2aa; /* Verde Agua */
+  padding-left: 1rem;
+}
+
+/* Nuevo layout inferior: Filtros + Lista */
+.historyLayout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.filterSidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 20px;
+}
+
+.listContent {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+/* =========================================
+   2. TARJETAS Y COMPONENTES
+   ========================================= */
+.sectionCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.sectionCard h3 {
+  margin-top: 0;
+  color: #444;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  margin-top: -0.5rem;
+}
+
+/* =========================================
+   3. BALANCE CARDS (GRID)
+   ========================================= */
+.balanceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.statCard {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+}
+
+.statCard span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.statCard h3 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.statCard.ingreso { border-left: 6px solid #20b2aa; }
+.statCard.ingreso h3 { color: #20b2aa; }
+
+.statCard.egreso { border-left: 6px solid #e67e00; }
+.statCard.egreso h3 { color: #4a4a4a; }
+
+.statCard.total {
+  background: linear-gradient(135deg, #20b2aa 0%, #1a938c 100%);
+  border: none;
+  color: white;
+}
+
+.statCard.total span { color: rgba(255, 255, 255, 0.8); }
+.statCard.total h3 { color: #fff; }
+
+.statCard.deuda {
+  background: linear-gradient(135deg, #e9860d 0%, #e67e00 100%);
+  border: none;
+  color: white;
+}
+.statCard.deuda span { color: #4a4a4a; }
+.statCard.deuda h3 { color: #fff; }
+
+/* =========================================
+   4. MODAL Y FORMULARIO DE REGISTRO
+   ========================================= */
+
+/* Botón que abre el modal */
+.btnNuevoMovimiento {
+  background-color: #20b2aa;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+  box-shadow: 0 4px 10px rgba(32, 178, 170, 0.3);
+}
+
+.btnNuevoMovimiento:hover {
+  background-color: #1a938c;
+  transform: translateY(-1px);
+}
+
+/* Estructura del Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fondo un poco más oscuro */
+  backdrop-filter: blur(3px);    /* Efecto desenfoque al fondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modalContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 550px;
+  max-width: 95%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.8rem;
+}
+
+.modalHeader h3 {
+  margin: 0;
+  color: #333;
+}
+
+.btnClose {
+  background: #f0f0f0;
+  border: none;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.btnClose:hover {
+  background: #e0e0e0;
+}
+
+/* Formulario dentro del Modal */
+.formModal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas */
+  gap: 1.2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Campo que ocupa las dos columnas (Concepto) */
+.formGroupFull {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formGroup label {
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.formModal input, 
+.formModal select {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: #fdfdfd;
+  transition: all 0.2s;
+}
+
+.formModal input:focus, 
+.formModal select:focus {
+  border-color: #20b2aa;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.1);
+}
+
+/* Botón Guardar */
+.btnGuardar {
+  background-color: #ff8c00; /* Naranja para acción principal */
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.btnGuardar:hover {
+  background-color: #e67e00;
+}
+
+/* =========================================
+   5. FILTROS (SIDEBAR VERTICAL)
+   ========================================= */
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.filterGroup label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.filterGroup select, 
+.filterGroup input {
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+}
+
+/* =========================================
+   6. TABLA DE MOVIMIENTOS
+   ========================================= */
+.listaContainer {
+  overflow-x: auto;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla th {
+  text-align: left;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #eee;
+  color: #666;
+  font-weight: 600;
+}
+
+.tabla td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}
+
+.rowIngreso td:nth-child(3) { color: #20b2aa; font-weight: bold; }
+.rowEgreso td:nth-child(3) { color: #e63946; font-weight: bold; }
+
+.badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #f0f0f0;
+  color: #666;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.btnPage {
+  background-color: #20b2aa;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+
+.btnPage:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btnPage:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.pageIndicator {
+  font-weight: 700;
+  color: #444;
+}
+
+.headerTitleRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Título a la izquierda, monto a la derecha */
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.totalPagarBadge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff5f5; /* Rojo muy suave */
+    border: 1px solid #feb2b2;
+    padding: 8px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.totalPagarLabel {
+    font-weight: 600;
+    color: #4a5568;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.totalPagarMonto {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #e53e3e; /* Rojo deuda */
+}
+/* --- Estilos para la Tabla y Filas --- */
+.rowClickable {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.rowClickable:hover {
+    background-color: #f8f9fa !important;
+}
+
+.cuotasBadge {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 2px 8px;
+    background-color: #e2e8f0;
+    color: #4a5568;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* --- Estilos del Modal Overlay --- */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(3px);
+}
+
+/* --- Contenedor del Modal --- */
+.modalDetalle {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+    padding: 1.5rem;
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    color: #1e293b;
+}
+
+.btnClose {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.modalBody {
+    padding: 1.5rem;
+}
+
+.infoPrincipal {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #cbd5e1;
+}
+
+/* --- Grid de Cuotas --- */
+.cuotasGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.cuotaCard {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cuotaHeader {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #64748b;
+}
+
+.cuotaMonto {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #334155;
+}
+
+.cuotaFecha {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-transform: capitalize;
+}
+
+/* --- Estados de las Cuotas --- */
+.pagada {
+    background-color: #f0fdf4;
+    border-left: 4px solid #22c55e;
+}
+
+.pendiente {
+    background-color: #fffbeb;
+    border-left: 4px solid #f59e0b;
+}
+/* =========================================
+   7. RESPONSIVE
+   ========================================= */
+@media (max-width: 900px) {
+  .historyLayout {
+    flex-direction: column;
+  }
+  .filterSidebar {
+    width: 100%;
+    position: static;
+  }
+}
