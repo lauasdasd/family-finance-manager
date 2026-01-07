@@ -196,3 +196,26 @@ def listar_movimientos(
                 .offset(skip) \
                 .limit(limit) \
                 .all()
+
+@router.patch("/{cuenta_id}/anular")
+def anular_cuenta(cuenta_id: int, db: Session = Depends(get_db)):
+    cuenta = db.query(Cuenta).filter(Cuenta.id == cuenta_id).first()
+    if not cuenta:
+        raise HTTPException(status_code=404, detail="Cuenta no encontrada")
+    
+    cuenta.anulada = True
+    # Opcional: Podrías marcar las cuotas de esta cuenta como no pagadas 
+    # si quieres que dejen de sumar en ingresos.
+    db.commit()
+    return {"message": "Movimiento anulado"}
+
+@router.delete("/{cuenta_id}")
+def eliminar_cuenta(cuenta_id: int, db: Session = Depends(get_db)):
+    cuenta = db.query(Cuenta).filter(Cuenta.id == cuenta_id).first()
+    if not cuenta:
+        raise HTTPException(status_code=404, detail="Cuenta no encontrada")
+    
+    # SQLAlchemy borrará las cuotas en cascada si tienes configurado cascade="all, delete"
+    db.delete(cuenta)
+    db.commit()
+    return {"message": "Movimiento eliminado definitivamente"}
